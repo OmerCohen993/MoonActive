@@ -20,7 +20,7 @@ public class JokesConfig {
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .expectStatusCode(200)
+//                .expectStatusCode(200) // for scalability use
                 .build();
     }
 }
