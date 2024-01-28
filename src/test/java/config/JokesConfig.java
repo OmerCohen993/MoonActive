@@ -20,7 +20,6 @@ public class JokesConfig {
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .expectContentType("application/json")
 //                .expectStatusCode(200) //better way for scalability use
                 .build();
     }

@@ -5,11 +5,7 @@ import io.restassured.response.Response;
 import objects.Joke;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import java.io.*;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.lessThan;
@@ -26,6 +22,7 @@ public class JokesTests extends JokesConfig {
 
     @Test
     public void test2() {
+
         Response categories = get("categories")
                 .then()
                 .statusCode(200)
@@ -37,21 +34,19 @@ public class JokesTests extends JokesConfig {
 
         Response jokeOfTheDay = get("joke/" + category);
 
+        //Validating the joke properties (sometimes the API response is missing required properties like 'delivery' and 'setup,' and replacing them with 'joke')
         jokeOfTheDay.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("JokesSchema.json"));
 
         Joke joke = jokeOfTheDay.getBody().as(Joke.class);
 
         try {
             String fileName = JokesEndpoints.FILE_PATH + String.format("%s.txt", jokeOfTheDay.jsonPath().get("id").toString());
-            File file = new File(fileName);
-            FileWriter fw = new FileWriter(file);
-            PrintWriter pw = new PrintWriter(fw);
-            pw.print(joke.toString());
-            pw.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(joke.toString());
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 

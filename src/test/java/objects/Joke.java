@@ -1,16 +1,6 @@
 package objects;
 
 public class Joke {
-    @Override
-    public String toString() {
-        return
-                "category = '" + category + '\'' +
-                "\ntype = '" + type + '\'' +
-                "\nsetup = '" + setup + '\'' +
-                "\ndelivery = '" + delivery + '\'' +
-                "\nflags = {" + flags
-                +" }";
-    }
 
     private Boolean error;
     private String category;
@@ -110,6 +100,19 @@ public class Joke {
     public void setLang(String lang) {
         this.lang = lang;
     }
+
+    @Override
+    public String toString() {
+        return
+                "category = '" + category + '\'' +
+                        "\ntype = '" + type + '\'' +
+                        "\nsetup = '" + setup + '\'' +
+                        "\ndelivery = '" + delivery + '\'' +
+                        "\nflags = {" + flags
+                        +" }";
+    }
+
+
     public class Flags {
 
         private Boolean nsfw;
