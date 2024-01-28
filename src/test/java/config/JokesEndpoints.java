@@ -5,6 +5,7 @@ import io.restassured.http.Headers;
 public interface JokesEndpoints {
     //GENERAL
     String JOKES_URL = "https://v2.jokeapi.dev/";
+    String FILE_PATH = "src/main/resources/jokesLog/";
 
 //    Headers
     String HOST = "jokes.p.rapidapi.com";

@@ -15,12 +15,13 @@ public class JokesConfig {
                 .setBaseUri(JokesEndpoints.JOKES_URL)
                 .addHeader("x-rapidapi-host",JokesEndpoints.HOST )
                 .addHeader("x-rapidapi-key", JokesEndpoints.KEY)
-                .addFilter(new RequestLoggingFilter()) //for personal use
-                .addFilter(new ResponseLoggingFilter()) //for personal use
+//                .addFilter(new RequestLoggingFilter()) //for personal use
+//                .addFilter(new ResponseLoggingFilter()) //for personal use
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-//                .expectStatusCode(200) // for scalability use
+                .expectContentType("application/json")
+//                .expectStatusCode(200) //better way for scalability use
                 .build();
     }
 }

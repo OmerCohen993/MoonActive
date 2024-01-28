@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "category",
+    "type",
+    "setup",
+    "delivery",
+    "flags"
+  ],
+  "properties": {
+    "category": {
+      "type": "string",
+      "default": "",
+      "title": "The category Schema",
+      "examples": [
+        "Programming"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "default": "",
+      "title": "The type Schema",
+      "examples": [
+        "twopart"
+      ]
+    },
+    "setup": {
+      "type": "string",
+      "default": "",
+      "title": "The setup Schema",
+      "examples": [
+        "How do you generate a random string?"
+      ]
+    },
+    "delivery": {
+      "type": "string",
+      "default": "",
+      "title": "The delivery Schema",
+      "examples": [
+        "Put a Windows user in front of Vim and tell them to exit."
+      ]
+    },
+    "flags": {
+      "type": "object",
+      "default": {},
+      "title": "The flags Schema",
+      "required": [
+        "nsfw",
+        "religious",
+        "political",
+        "racist",
+        "sexist",
+        "explicit"
+      ],
+      "properties": {
+        "nsfw": {
+          "type": "boolean",
+          "default": false,
+          "title": "The nsfw Schema",
+          "examples": [
+            false
+          ]
+        },
+        "religious": {
+          "type": "boolean",
+          "default": false,
+          "title": "The religious Schema",
+          "examples": [
+            false
+          ]
+        },
+        "political": {
+          "type": "boolean",
+          "default": false,
+          "title": "The political Schema",
+          "examples": [
+            false
+          ]
+        },
+        "racist": {
+          "type": "boolean",
+          "default": false,
+          "title": "The racist Schema",
+          "examples": [
+            false
+          ]
+        },
+        "sexist": {
+          "type": "boolean",
+          "default": false,
+          "title": "The sexist Schema",
+          "examples": [
+            false
+          ]
+        },
+        "explicit": {
+          "type": "boolean",
+          "default": false,
+          "title": "The explicit Schema",
+          "examples": [
+            false
+          ]
+        }
+      },
+      "examples": [{
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      }]
+    }
+  },
+  "examples": [{
+    "category": "Programming",
+    "type": "twopart",
+    "setup": "How do you generate a random string?",
+    "delivery": "Put a Windows user in front of Vim and tell them to exit.",
+    "flags": {
+      "nsfw": false,
+      "religious": false,
+      "political": false,
+      "racist": false,
+      "sexist": false,
+      "explicit": false
+    }
+  }]
+}
